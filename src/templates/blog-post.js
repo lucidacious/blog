@@ -5,15 +5,28 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
+import {FaTag} from "react-icons/fa"
+
+
+const Tags=({tags})=>{
+  const links=tags.map((tag)=>{return <Link style={{ boxShadow: `none`,marginRight:'5px' }} to={`/tags/${tag}`} key={tag}> <FaTag/> {tag} </Link>})
+  return <div style={{
+    marginBottom: rhythm(1),
+  }}>{links}</div>
+}
 
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
-    const siteTitle = this.props.data.site.siteMetadata.title
+    const {title,companyName,companyUrl,contributors} = this.props.data.site.siteMetadata
     const { previous, next } = this.props.pageContext
+    const timeToRead = (post.timeToRead ===1)?"1 minute":`${post.timeToRead} minutes`
+    const found= contributors.find(c=>(c.name===post.frontmatter.author))
+    const bio=(!!found)?found.bio:""
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+
+      <Layout  title={title} companyUrl={companyUrl} companyName={companyName}>
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
@@ -35,17 +48,20 @@ class BlogPostTemplate extends React.Component {
                 marginBottom: rhythm(1),
               }}
             >
-              {post.frontmatter.date}
+              {post.frontmatter.date} &middot; {timeToRead}
             </p>
           </header>
           <section dangerouslySetInnerHTML={{ __html: post.html }} />
+
+
           <hr
             style={{
               marginBottom: rhythm(1),
             }}
           />
           <footer>
-            <Bio />
+            <Tags  tags={post.frontmatter.tags}/>
+            <Bio author={post.frontmatter.author} bio={bio}/>
           </footer>
         </article>
 
@@ -87,17 +103,26 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
-        author
+        companyName
+        companyUrl
+        contributors{
+          name
+          bio
+        }
       }
     }
+    
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
       html
+      timeToRead
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        author
+        tags
       }
     }
   }

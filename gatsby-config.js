@@ -1,12 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
-    author: `Kyle Mathews`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
-    social: {
-      twitter: `kylemathews`,
-    },
+    title: `Lucidacious LLC`,
+    contributors: [{name:`Clay Moore`, bio:`Clay lives in the Pacific Northwest`},
+      {name:`Unknown`, bio:`Who the heck is this?`},
+      {name:`Taylor Bryant`, bio:"Taylor lives and works in San Francisco"}],
+    companyName: `Lucidacious LLC`,
+    description: `Lucicacious Blog`,
+    companyUrl: `https://lucidacious.com/`,
+    siteUrl: `https://blog.lucidacious.com`
+
   },
   plugins: [
     {
@@ -57,13 +59,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Lucidacious Blog`,
+        short_name: `blog`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/icon.png`,
       },
     },
     `gatsby-plugin-offline`,

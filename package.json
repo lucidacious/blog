@@ -1,11 +1,11 @@
 {
-  "name": "gatsby-starter-blog",
-  "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "name": "lucidacious-blog",
+  "private": false,
+  "description": "Lucidacious LLC blog",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Clay Moore, member Lucidacious LLC",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/lucidacious/blog/issues"
   },
   "dependencies": {
     "gatsby": "^2.15.16",
@@ -25,10 +25,13 @@
     "gatsby-source-filesystem": "^2.1.22",
     "gatsby-transformer-remark": "^2.6.22",
     "gatsby-transformer-sharp": "^2.2.14",
+    "lodash": "^4.17.15",
     "prismjs": "^1.17.1",
+    "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",
+    "react-icons": "^3.7.0",
     "react-typography": "^0.16.19",
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.75",
@@ -38,15 +41,18 @@
   "devDependencies": {
     "prettier": "^1.18.2"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://github.com/lucidacious/blog#readme",
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "Lucidacious",
+    "blog",
+    "react"
   ],
   "license": "MIT",
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/https://github.com/lucidacious/blog.git"
   },
   "scripts": {
     "build": "gatsby build",
